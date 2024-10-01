@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio Hub</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+   <style>
+    body {
+        font-family: "Roboto", sans-serif; /* Sleek, modern sans-serif font */
+        background-color: #121212; /* Deep dark background */
+        color: #e0e0e0; /* Light text for contrast */
+        text-align: center;
+        padding: 50px;
+        animation: fadeIn 1s ease-in;
+    }
+
+    h1 {
+        font-size: 2.5em;
+        color: #00e676; /* Neon green accent for header */
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+        animation: slideIn 1s ease-out;
+    }
+
+    input[type="text"] {
+        padding: 12px;
+        font-size: 1.1em;
+        background-color: #1e1e1e; /* Dark input background */
+        border: none; /* Sleek: no border */
+        border-radius: 8px;
+        color: #e0e0e0; /* Light text inside input */
+        width: 320px;
+        margin-bottom: 20px;
+        transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+        transform: scale(1.05);
+        outline: none;
+        background-color: #333; /* Lighter background on focus */
+    }
+
+    button {
+        padding: 12px 24px;
+        font-size: 1.2em;
+        background-color: #00e676; /* Neon green button */
+        color: #121212; /* Dark text on light button */
+        border: none; /* No border for a flat, modern look */
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+        background-color: #00c853; /* Slightly darker green on hover */
+        transform: scale(1.02);
+    }
+
+    /* Output Container Styles */
+    .output-container {
+        display: none;
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 8px;
+        background-color: #1e1e1e; /* Dark background for output */
+        color: #81d4fa; /* Light blue text for output */
+        font-size: 1.1em;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Soft shadow */
+        opacity: 0;
+        transition: all 0.5s ease;
+    }
+
+    .output-container.show {
+        display: block;
+        opacity: 1;
+    }
+
+    .description {
+        margin: 40px 0;
+        font-size: 1.2em;
+        line-height: 1.6;
+        color: #b0bec5; /* Slightly muted gray text */
+    }
+
+    .links {
+        margin: 30px 0;
+        font-size: 1.1em;
+    }
+
+    .links a {
+        color: #00e676; /* Neon green links */
+        text-decoration: none;
+        margin: 0 10px;
+        transition: color 0.3s;
+    }
+
+    .links a:hover {
+        color: #00c853; /* Slightly darker green on hover */
+    }
+
+    footer {
+        margin-top: 50px;
+        font-size: 0.9em;
+        color: #757575; /* Dark gray for footer */
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+</style>
+
+
+</head>
+<body>
+    <h1>Welcome to the Bio-Hub!</h1>
+    <p>Please Enter Your Taxonomic Name Here</p>
+    <input type="text" id="wordInput" placeholder="Enter Taxonomic Name">
+    <button onclick="getCode()">Submit</button>
+    
+   <!-- We at the bio lab simply do not understand where our data comes from. We aren't putting in any data... So who is? My weird Co-worker assumes that it must be coming from the past and the future or something but I think he's just making a funny understanding out of it. I keep trying different Codes for the new samples we get here at the lab but so far it hasn't taken anything normal... maybe I'll ask the head scientist where this machine even came from. P.S. Last I knew we were working in a plains area, but today it seems more of a barren land, I need to ask for a more comfortable bed here. This one has me having restless nights. -->
+    <div id="output" class="output-container"></div>
+
+    <div class="description">
+        <h2>About</h2>
+        <p>This hub provides information and resources related to biology samples.</p>
+    </div>
+
+    <footer>
+        &copy; <span id="year"></span> Bio Hub. All rights reserved.
+    </footer>
+
+    <script>
+function _0x5713($,x){var _=_0x5328();return(_0x5713=function($,x){return _[$-=416]})($,x)}var _0x161a0b=_0x5713;!function($,x){for(var _=_0x5713,t=$();;)try{if(-parseInt(_(439))/1*(-parseInt(_(429))/2)+parseInt(_(453))/3*(-parseInt(_(430))/4)+parseInt(_(455))/5+-parseInt(_(446))/6+-parseInt(_(436))/7+parseInt(_(454))/8*(-parseInt(_(449))/9)+parseInt(_(424))/10==593832)break;t.push(t.shift())}catch(a){t.push(t.shift())}}(_0x5328,593832);var Meow=_0x161a0b(442),answerData={ba1ad5a103933f41f565fcdf756e5606:_0x161a0b(465),"77e17c3572886e7052a421e79b699a9f":_0x161a0b(419),"763275034b3bde5ad4f0fb074a35e741":_0x161a0b(478)};function hashWord($){var x=_0x161a0b;return CryptoJS[x(483)]($.trim())[x(458)]()}function encryptWord($){var x=_0x161a0b,_=CryptoJS.lib[x(468)][x(440)](16),t=CryptoJS[x(477)].encrypt($,CryptoJS[x(443)].Utf8[x(426)](Meow),{iv:_,mode:CryptoJS[x(476)][x(451)],padding:CryptoJS.pad[x(428)]});return _[x(463)](t.ciphertext).toString(CryptoJS.enc.Base64)}function _0x5328(){var $=["output","19861680LtCjwT","console","parse","create","Pkcs7","4822mIaCxM","4uieuTY","table","underline","info","message","Utf8","1533154XdOYMB","prototype","log","127klYtjL","random","Word not found. Try again.","3APRGVhBZqP4HfA2","enc","search","error","6791238pEstMr","style","Sample Processed! Thank you for contributing. Your link is: ","2979zGkVVg","trim","CBC","return (function() ","1060782jEkurU","19472fVYZgb","4058050dPSRGV","exception","Logging encrypted words... (Placeholder)","toString","createElement","textDecoration","Decryption <failed.","bind","concat","10px","BNakl0yiJ2gqxM135V0kEtKNvNw7wfOAkfjVbqRuL8WgTDYcRcun1ybnnTB8XG8/","Error during decryption: ","value","WordArray","marginLeft","show","target","getElementById","add","(((.+)+)+)+$","appendChild","mode","AES","nG+ztS6yZjXZslXmsonJyrJkZiagDDtKeJw1zJt2RLscFsloY1p0JmINrsMtCdJn","textContent","year","pad","slice","MD5","classList","lib","sigBytes","3ZfHVV4TVIn6Nl1tRsSeC3PHX9pWw0CdFDtXooWjTqMnXgL7+46tph5RF5vhNGgh","href","constructor","apply"];return(_0x5328=function(){return $})()}function decryptWord($){var x=_0x161a0b,_=CryptoJS[x(443)].Base64[x(426)]($),t=CryptoJS[x(417)].WordArray[x(427)](_.words[x(482)](0,4),16),a=CryptoJS[x(417)][x(468)][x(427)](_.words.slice(4),_[x(418)]-16);return CryptoJS[x(477)].decrypt({ciphertext:a},CryptoJS[x(443)][x(435)].parse(Meow),{iv:t,mode:CryptoJS[x(476)][x(451)],padding:CryptoJS[x(481)][x(428)]})[x(458)](CryptoJS[x(443)][x(435)])}function getCode(){var $=_0x161a0b,x=document[$(472)]("wordInput")[$(467)][$(450)](),_=hashWord(x),t=document[$(472)]($(423));if(t.classList.remove($(470)),t.textContent="",answerData[_])try{var a=decryptWord(answerData[_]);if(a){t[$(479)]=$(448);var r=document[$(459)]("a");r[$(420)]=a,r[$(471)]="_blank",r.textContent=a,r[$(447)].color="#2c7a7b",r[$(447)][$(460)]=$(432),r[$(447)][$(469)]=$(464),t[$(475)](r),t.classList[$(473)]($(470))}else t.textContent=$(461)}catch(e){t[$(479)]=$(466)+e[$(434)]}else t[$(479)]=$(441);setTimeout(()=>{t[$(416)].add("show")},50)}function updateYear(){var $,x,_=_0x161a0b,t=($=!0,function(x,_){var t=$?function(){var $=_0x5713;if(_){var t=_[$(422)](x,arguments);return _=null,t}}:function(){};return $=!1,t})(this,function(){var $=_0x5713;return t.toString()[$(444)]($(474)).toString()[$(421)](t)[$(444)]($(474))});t();var a=(x=!0,function($,_){var t=x?function(){var x=_0x5713;if(_){var t=_[x(422)]($,arguments);return _=null,t}}:function(){};return x=!1,t});a(this,function(){var $,x=_0x5713;try{$=Function(x(452)+'{}.constructor("return this")( ));')()}catch(_){$=window}for(var t=$[x(425)]=$[x(425)]||{},r=[x(438),"warn",x(433),x(445),x(456),x(431),"trace"],e=0;e<r.length;e++){var n=a.constructor[x(437)].bind(a),c=r[e],o=t[c]||n;n.__proto__=a[x(462)](a),n[x(458)]=o[x(458)][x(462)](o),t[c]=n}})();let r=document[_(472)](_(480));r.textContent=Math.floor(1001*Math[_(440)]())+2e3}function logEncryptedWords(){console.log(_0x161a0b(457))}setInterval(updateYear,1e3),updateYear();    </script>
+</body>
+	
+</html>
